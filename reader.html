@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader</title>
+
+    <!-- Link to external CSS for styling -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Include user messages for dynamic text content -->
+    <script src="lang/messages/en/user.js"></script>
+
+    <!-- JavaScript file for handling the reader page logic -->
+    <script src="js/reader.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!-- Page header with dynamic title and last retrieval time -->
+        <h1>Reader</h1>
+        <div id="retrievalTime">Last retrieved at: --:--:--</div>
+    </header>
+
+    <section id="notesDisplay">
+        <!-- Notes will be dynamically displayed here by reader.js -->
+    </section>
+
+    <footer>
+        <!-- Button to navigate back to the home page (index.html) -->
+        <button onclick="location.href='index.html'">Back to Home</button>
+    </footer>
+
+</body>
+
+</html>

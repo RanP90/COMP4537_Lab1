@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writer</title>
+
+    <!-- Link to external CSS for styling -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Include user messages for dynamic text content -->
+    <script src="lang/messages/en/user.js"></script>
+
+    <!-- JavaScript file for handling the writer page logic -->
+    <script src="js/writer.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!-- Page header with dynamic title and last saved time -->
+        <h1>Writer</h1>
+        <div id="saveTime">Last saved at: --:--:--</div>
+    </header>
+
+    <section id="notes-box">
+        <!-- Notes will be dynamically displayed here by writer.js -->
+    </section>
+
+    <!-- Container for buttons -->
+    <div class="button-container">
+        <!-- Button to add a new note -->
+        <button id="add-notes-button">Add Note</button>
+
+        <!-- Button to navigate back to the home page (index.html) -->
+        <button onclick="location.href='index.html'">Back to Home</button>
+    </div>
+
+</body>
+
+</html>

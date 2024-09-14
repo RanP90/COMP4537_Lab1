@@ -1,0 +1,81 @@
+/** 
+DISCLOSURE: The initial structure of this code was generated with the help of ChatGPT. 
+Subsequent modifications and improvements were made separately to meet specific project requirements.
+*/
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Styling for the header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Navigation bar styling */
+nav {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;    /* Center buttons horizontally */
+    margin-bottom: 20px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 10px; /* Add margin between buttons */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Section for displaying notes */
+#notes-box, #notesDisplay {
+    margin: 20px 0;
+}
+
+textarea {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Container for each note in writer.html */
+#notes-box div {
+    margin-bottom: 15px;
+}
+
+/* Timestamp styles */
+#saveTime, #retrievalTime {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
