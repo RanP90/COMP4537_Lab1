@@ -3,35 +3,40 @@ DISCLOSURE: The initial structure of this code was generated with the help of Ch
 Subsequent modifications and improvements were made separately to meet specific project requirements.
 */
 
-// Get the DOM element where notes will be displayed
-const notesDisplay = document.getElementById('notesDisplay');
+// Class responsible for displaying notes in the reader view
+class ReaderUIManager {
+    constructor(noteManager) {
+        this.noteManager = noteManager;
+        this.notesDisplay = document.getElementById('notesDisplay');
+        this.init();
+    }
 
-// Function to render notes into the DOM
-function displayNotes(notes) {
-    notesDisplay.innerHTML = ''; // Clear previous notes
-    notes.forEach(note => {
-        // Create a paragraph for each note's content
-        const noteElement = document.createElement('p');
-        noteElement.textContent = note.content; // Set the note content in the paragraph
-        notesDisplay.appendChild(noteElement); // Append the paragraph to the notes display section
-    });
+    // Initialize by loading notes and setting up auto-refresh
+    init() {
+        this.loadNotes();
+        setInterval(() => this.loadNotes(), 2000); // Auto-refresh notes every 2 seconds
+    }
+
+    // Display notes on the page
+    loadNotes() {
+        this.notesDisplay.innerHTML = ''; // Clear the display area
+        this.noteManager.notes.forEach(note => {
+            const noteElement = document.createElement('p');
+            noteElement.textContent = note.content; // Set note content
+            this.notesDisplay.appendChild(noteElement); // Append to the DOM
+        });
+        this.updateRetrievalTime(); // Update the last retrieval time
+    }
+
+    // Update the last retrieval time display
+    updateRetrievalTime() {
+        const currentTime = new Date().toLocaleTimeString(); // Get the current time
+        document.getElementById('retrievalTime').textContent = `Last retrieved at: ${currentTime}`; // Update the DOM with the last retrieval time
+    }
 }
 
-// Function to retrieve notes from localStorage
-function loadNotes() {
-    const storedNotes = JSON.parse(localStorage.getItem('notes')) || []; // Get notes from localStorage or an empty array
-    displayNotes(storedNotes); // Display the notes in the UI
-    updateRetrievalTime(); // Update the last retrieved timestamp
-}
-
-// Function to update the last retrieved time display
-function updateRetrievalTime() {
-    const currentTime = new Date().toLocaleTimeString(); // Get the current time
-    document.getElementById('retrievalTime').textContent = `${userMessages.retrievalTime} ${currentTime}`; // Update the timestamp in the DOM
-}
-
-// Automatically retrieve and display notes every 2 seconds
-setInterval(loadNotes, 2000);
-
-// Initial load of notes
-loadNotes();
+// Initialize the ReaderUIManager when the reader page loads
+window.onload = () => {
+    const noteManager = new NoteManager(); // Create a shared NoteManager instance
+    new ReaderUIManager(noteManager); // Initialize ReaderUIManager with the same NoteManager
+};
